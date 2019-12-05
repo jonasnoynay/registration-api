@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Prize 1",
+        "quantity": 1,
+        "bgColor": "#374c62",
+        "fontColor":"#ffffff"
+    },
+    {
+        "name": "Prize 2",
+        "quantity": 2,
+        "bgColor": "#efc41a",
+        "fontColor":"#ffffff"
+    },
+    {
+        "name": "Prize 3",
+        "quantity":0,
+        "bgColor": "#e67e26",
+        "fontColor":"#ffffff"
+    },
+    {
+        "name": "Prize 4",
+        "quantity":0,
+        "bgColor": "#e74d3d",
+        "fontColor":"#ffffff"
+    },
+    {
+        "name": "Prize 5",
+        "quantity":0,
+        "bgColor": "#e61e64",
+        "fontColor":"#ffffff"
+    },
+    {
+        "name": "Prize 6",
+        "quantity":0,
+        "bgColor": "#6ebe91",
+        "fontColor":"#ffffff"
+    },
+    {
+        "name": "Prize 7",
+        "quantity":0,
+        "bgColor": "#c8b39d",
+        "fontColor":"#ffffff"
+    },
+    {
+        "name": "Prize 8",
+        "quantity":0,
+        "bgColor": "#94a4a6",
+        "fontColor":"#ffffff"
+    },
+    {
+        "name": "Prize 9",
+        "quantity":3,
+        "bgColor": "#0fa186",
+        "fontColor":"#ffffff"
+    },
+    {
+        "name": "Prize 10",
+        "quantity":0,
+        "bgColor": "#2880b9",
+        "fontColor":"#ffffff"
+    },
+    {
+        "name": "Prize 11",
+        "quantity":0,
+        "bgColor": "#7788c7",
+        "fontColor":"#ffffff"
+    },
+    {
+        "name": "Prize 12",
+        "quantity":0,
+        "bgColor": "#91416e",
+        "fontColor":"#ffffff"
+    }
+]
