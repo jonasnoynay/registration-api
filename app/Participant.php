@@ -9,7 +9,7 @@ class Participant extends Model
     protected $table = 'participants';
     
     protected $fillable = [
-        'firstname', 'lastname'
+        'fullname'
     ];
 
     public $timestamps = false;

@@ -27,8 +27,7 @@ class PreregisteredResource extends Resource
                 'attributes' =>
                 [
                     'id_number' => $this->idnumber,
-                    'firstname' => $this->firstname,
-                    'lastname' => $this->lastname,
+                    'fullname' => $this->fullname,
                     'hiredate' => $this->hiredate,
                     'regdate' => $this->regdate,
                     'empstatus' => $this->empstatus,

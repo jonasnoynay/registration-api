@@ -33,8 +33,7 @@ class ParticipantResource extends Resource
                 'type'  => $this->resource_type,
                 'attributes' =>
                 [
-                    'firstname' => $this->firstname,
-                    'lastname' => $this->lastname
+                    'fullname' => $this->fullname
                 ]
         ];
     }

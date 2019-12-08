@@ -29,7 +29,7 @@ class EmployeeController extends Controller
         $keyword = $request->keyword;
 
         //find employee by fullname or keyword
-        $results = Preregistered::whereRaw('(CONCAT(firstname," ",lastname) like "%'.$keyword.'%" OR idnumber like "%'.$keyword.'%")')
+        $results = Preregistered::whereRaw('(fullname like "%'.$keyword.'%" OR idnumber like "%'.$keyword.'%")')
         ->where('registered', Preregistered::REGISTERED_FALSE)->limit(5)->get();
 
         //return suggestions
@@ -98,7 +98,7 @@ class EmployeeController extends Controller
      */
     public function employeesTable(Request $request)
     {
-        $employees = Preregistered::select('id', 'idnumber', 'firstname', 'lastname', 'registered');
+        $employees = Preregistered::select('id', 'idnumber', 'fullname', 'registered');
 
         //dd($request->get('filterRegistered', []));
         if($request->get('filterRegistered')) {
@@ -113,7 +113,7 @@ class EmployeeController extends Controller
         }
         if($request->get('searchString')) {
             $searchString = $request->get('searchString');
-            $employees = $employees->whereRaw("(idnumber LIKE '%".$searchString."%' OR firstname LIKE '%".$searchString."%' OR lastname LIKE '%".$searchString."%')");
+            $employees = $employees->whereRaw("(idnumber LIKE '%".$searchString."%' OR fullname LIKE '%".$searchString."%')");
         }
 
         $employees = $employees->paginate($request->get('per_page', 10));
@@ -131,11 +131,11 @@ class EmployeeController extends Controller
      */
     public function participantsTable(Request $request)
     {
-        $participants = Participant::select('id', 'firstname', 'lastname');
+        $participants = Participant::select('id', 'fullname');
 
         if($request->get('searchString')) {
             $searchString = $request->get('searchString');
-            $participants = $participants->whereRaw("(firstname LIKE '%".$searchString."%' OR lastname LIKE '%".$searchString."%')");
+            $participants = $participants->whereRaw("(fullname LIKE '%".$searchString."%')");
         }
 
         $participants = $participants->paginate($request->get('per_page', 10));
@@ -156,12 +156,9 @@ class EmployeeController extends Controller
         $dataList = $request->get('data');
         $toInsert = [];
 
-        //return response()->json($dataList);
-
-        //return dd();
         if(is_array($dataList) && count($dataList) > 0) {
             foreach($dataList as $emp) {
-                if(is_array($emp) && count($emp) >= 3) {
+                if(is_array($emp) && count($emp) >= 2) {
 
                     $idnumber = sprintf("%04d", $emp[0]);
 
@@ -170,8 +167,7 @@ class EmployeeController extends Controller
                     if(!$check) {
                         $toInsert[] = [
                             'idnumber' => $idnumber,
-                            'firstname' => $emp[1],
-                            'lastname' => $emp[2]
+                            'fullname' => $emp[1]
                         ];
                     }
                 }
@@ -197,14 +193,13 @@ class EmployeeController extends Controller
 
         if(is_array($dataList) && count($dataList) > 0) {
             foreach($dataList as $emp) {
-                if(is_array($emp) && count($emp) >= 2) {
+                if(is_array($emp) && count($emp) >= 1) {
 
-                    $check = Participant::where('firstname', $emp[0])->where('lastname', $emp[1])->first();
+                    $check = Participant::where('fullname', $emp[0])->first();
 
                     if(!$check) {
                         $toInsert[] = [
-                            'firstname' => $emp[0],
-                            'lastname' => $emp[1]
+                            'fullname' => $emp[0]
                         ];
                     }
                 }
@@ -262,8 +257,7 @@ class EmployeeController extends Controller
         $employee = Preregistered::findOrFail($id);
 
         $employee->idnumber = $request->idnumber;
-        $employee->firstname = $request->firstname;
-        $employee->lastname = $request->lastname;
+        $employee->fullname = $request->fullname;
         $employee->registered = $request->registered == 'Yes' ? Preregistered::REGISTERED_TRUE: Preregistered::REGISTERED_FALSE;
         $employee->save();
 

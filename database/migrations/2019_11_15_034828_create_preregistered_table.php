@@ -16,8 +16,7 @@ class CreatePreregisteredTable extends Migration
         Schema::create('preregistered', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('idnumber', 100);
-            $table->string('firstname', 100)->nullable();
-            $table->string('lastname', 100)->nullable();
+            $table->string('fullname', 255)->nullable();
             $table->tinyInteger('registered')->comment('0=false;1=true;')->default(0);
         });
     }

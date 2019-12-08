@@ -15,8 +15,7 @@ class CreateParticipantsTable extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('firstname', 100)->nullable();
-            $table->string('lastname', 100)->nullable();
+            $table->string('fullname', 255)->nullable();
         });
     }
 

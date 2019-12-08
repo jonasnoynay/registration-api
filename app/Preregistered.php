@@ -10,7 +10,7 @@ class Preregistered extends Model
     protected $table = 'preregistered';
     
     protected $fillable = [
-        'idnumber', 'firstname', 'lastname', 'registered'
+        'idnumber', 'fullname', 'registered'
     ];
 
     public $timestamps = false;
