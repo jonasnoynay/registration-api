@@ -13,11 +13,11 @@ class CreateWinnersTable extends Migration
      */
     public function up()
     {
-        Schema::create('winners', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('preregistered_id')->unsigned()->nullable();
-            $table->integer('prize_id')->unsigned()->nullable();
-        });
+        // Schema::create('winners', function (Blueprint $table) {
+        //     $table->bigIncrements('id');
+        //     $table->integer('preregistered_id')->unsigned()->nullable();
+        //     $table->integer('prize_id')->unsigned()->nullable();
+        // });
     }
 
     /**

@@ -13,12 +13,12 @@ class CreatePrizesTable extends Migration
      */
     public function up()
     {
-        Schema::create('prizes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name', 200)->nullable();
-            $table->integer('available')->default(0)->nullable();
-            $table->string('won')->default(0)->nullable();
-        });
+        // Schema::create('prizes', function (Blueprint $table) {
+        //     $table->bigIncrements('id');
+        //     $table->string('name', 200)->nullable();
+        //     $table->integer('available')->default(0)->nullable();
+        //     $table->string('won')->default(0)->nullable();
+        // });
     }
 
     /**
