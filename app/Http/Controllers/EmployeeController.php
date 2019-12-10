@@ -263,4 +263,40 @@ class EmployeeController extends Controller
 
         return response()->json(['success' => true]);
     }
+
+    /**
+     * Add New Employee
+     *
+     * @param Request $request
+     * @param integer $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addNewEmployee(Request $request)
+    {
+        $employee = new Preregistered;
+
+        $employee->idnumber = $request->idnumber;
+        $employee->fullname = $request->fullname;
+        $employee->registered = $request->registered;
+        $employee->save();
+
+        return response()->json(['success' => true]);
+    }
+
+    /**
+     * Add New Participant
+     *
+     * @param Request $request
+     * @param integer $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addNewParticipant(Request $request)
+    {
+        $participant = new Participant;
+
+        $participant->fullname = $request->participantfullname;
+        $participant->save();
+
+        return response()->json(['success' => true]);
+    }
 }
