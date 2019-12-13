@@ -26,7 +26,8 @@ class ParticipantTableResource extends Resource
                 'type'  => $this->resource_type,
                 'attributes' =>
                 [
-                    'Fullname' => $this->fullname
+                    'Fullname' => $this->fullname,
+                    'Winner' => $this->is_winner
                 ]
         ];
     }

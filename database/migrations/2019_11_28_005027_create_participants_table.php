@@ -16,6 +16,7 @@ class CreateParticipantsTable extends Migration
         Schema::create('participants', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('fullname', 255)->nullable();
+            $table->tinyInteger('winner')->comment('0=false;1=true;')->default(0);
         });
     }
 

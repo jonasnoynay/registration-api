@@ -12,7 +12,7 @@
       "fontColor": "#ffffff"
     },
     {
-      "name": "Nalgene 1 Liter",
+      "name": "Nalgene Bottle",
       "quantity": 2,
       "bgColor": "#e67e26",
       "fontColor": "#ffffff"
@@ -24,7 +24,7 @@
       "fontColor": "#ffffff"
     },
     {
-      "name": "Sodexo Premium GC (1K)",
+      "name": "Sodexo Premium GC 500",
       "quantity": 2,
       "bgColor": "#e61e64",
       "fontColor": "#ffffff"
@@ -36,7 +36,7 @@
       "fontColor": "#ffffff"
     },
     {
-      "name": "Yakimix Good For 2",
+      "name": "H&M Gift Card 1,000",
       "quantity": 2,
       "bgColor": "#c8b39d",
       "fontColor": "#ffffff"
@@ -48,7 +48,7 @@
       "fontColor": "#ffffff"
     },
     {
-      "name": "Bag (PHP 1500)",
+      "name": "Rustan's Gift Card 1,500",
       "quantity": 1,
       "bgColor": "#0fa186",
       "fontColor": "#ffffff"

@@ -24,6 +24,7 @@ $router->post('employees/excel/insert', ['uses'=>'EmployeeController@insertExcel
 $router->delete('employees/delete', ['uses'=>'EmployeeController@deleteEmployees', 'as' => 'employees.delete']);
 $router->put('employee/update/{id}', ['uses'=>'EmployeeController@updateEmployee', 'as' => 'employees.update']);
 $router->post('employee/new', ['uses'=>'EmployeeController@addNewEmployee', 'as' => 'employees.add']);
+$router->put('employee/winner/{id}', ['uses'=>'EmployeeController@setWinner', 'as' => 'employee.winner']);
 
 $router->get('participants/table', ['uses'=>'EmployeeController@participantsTable', 'as' => 'participants.table']);
 $router->post('participants/excel/insert', ['uses'=>'EmployeeController@insertParticipants', 'as' => 'participants.insert.excel']);

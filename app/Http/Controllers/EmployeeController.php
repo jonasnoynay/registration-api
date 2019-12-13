@@ -70,7 +70,7 @@ class EmployeeController extends Controller
         // ->where('registered', Preregistered::REGISTERED_TRUE)
         // ->orderByRaw('RAND()')->limit(12)->get();
 
-        $participants = Participant::orderByRaw('RAND()')->limit(12)->get();
+        $participants = Participant::where('winner', Participant::WINNER_FALSE)->orderByRaw('RAND()')->limit(12)->get();
 
         //return participants
         return response()->json(new ParticipantCollection($participants));
@@ -131,7 +131,18 @@ class EmployeeController extends Controller
      */
     public function participantsTable(Request $request)
     {
-        $participants = Participant::select('id', 'fullname');
+        $participants = Participant::select('id', 'fullname', 'winner');
+
+        if($request->get('filterWinner')) {
+
+            $winner = collect($request->filterWinner)->map(function($win){
+                return $win == 'Yes' ? Participant::WINNER_TRUE : Participant::WINNER_FALSE;
+            });
+
+            if($winner->count() > 0) {
+                $participants = $participants->whereIn('winner', $winner->toArray());
+            }
+        }
 
         if($request->get('searchString')) {
             $searchString = $request->get('searchString');
@@ -287,7 +298,6 @@ class EmployeeController extends Controller
      * Add New Participant
      *
      * @param Request $request
-     * @param integer $id
      * @return \Illuminate\Http\JsonResponse
      */
     public function addNewParticipant(Request $request)
@@ -295,6 +305,22 @@ class EmployeeController extends Controller
         $participant = new Participant;
 
         $participant->fullname = $request->participantfullname;
+        $participant->save();
+
+        return response()->json(['success' => true]);
+    }
+
+    /**
+     * Set participant as winner
+     *
+     * @param Request $request
+     * @param integer $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function setWinner(Request $request, $id = 0)
+    {
+        $participant = Participant::findOrFail($id);
+        $participant->winner = Participant::WINNER_TRUE;
         $participant->save();
 
         return response()->json(['success' => true]);
