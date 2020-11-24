@@ -27,7 +27,7 @@ class EmployeeTableResource extends Resource
                 'attributes' =>
                 [
                     'ID Number' => $this->idnumber,
-                    'Fullname' => $this->fullname,
+                    'Fullname' => utf8_decode($this->fullname),
                     'Date Hired' => $this->date_hired,
                     'Registered' => $this->is_registered
                 ]

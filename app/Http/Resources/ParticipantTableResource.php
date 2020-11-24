@@ -26,7 +26,7 @@ class ParticipantTableResource extends Resource
                 'type'  => $this->resource_type,
                 'attributes' =>
                 [
-                    'Fullname' => $this->fullname,
+                    'Fullname' => utf8_decode($this->fullname),
                     'Winner' => $this->is_winner
                 ]
         ];
